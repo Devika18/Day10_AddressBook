@@ -78,18 +78,15 @@ public class AddressBookMain {
         AddressBookSystem newEntry = new AddressBookSystem();
         newEntry.addPersonDetails(newPersonDetails);
     }
-    ublic static void openUserIn() {
+    public static void openUserIn() {
         Scanner sc = new Scanner(System.in);
         loop: while (true) {
             System.out.println("Choose the option...!");
             System.out.println("1. Add Person ");
             System.out.println("2. Edit Person ");
             System.out.println("3. Delete Person ");
-            System.out.println("4. Search Person ");
-            System.out.println("5. Sort by Zip ");
-            System.out.println("6. Sort by Name ");
-            System.out.println("7. Display ");
-            System.out.println("8. Exit ");
+            System.out.println("4. Display ");
+            System.out.println("5. Exit ");
             int option = sc.nextInt();
             sc.nextLine();
             AddressBookSystem tempObj = new AddressBookSystem();
@@ -106,24 +103,9 @@ public class AddressBookMain {
                     tempObj.deletePersonDetails(s);
                     break;
                 case 4:
-                    System.out.println("Enter the first name of the person which need to be search");
-                    String s1 = scan.next();
-                    tempObj.searchPersonDetails(s1);
-                    System.out.println();
-                    break;
-                case 5:
-                    tempObj.sortByZip();
-                    System.out.println();
-                    break;
-                case 6:
-                    tempObj.sortByFirstName();
-                    System.out.println();
-                    break;
-                case 7:
                     tempObj.display();
                     System.out.println();
-                    break;
-                case 8:
+                    case 5:
                     tempObj.exitSystem();
                     System.out.println();
                     break;

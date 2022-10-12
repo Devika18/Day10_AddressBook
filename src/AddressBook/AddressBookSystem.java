@@ -13,7 +13,7 @@ public class AddressBookSystem {
         writingData();
     }
     public static void readingData() {
-        String path = "D:\\IdeaProjects\\AddressBook_Assignment\\data.csv";
+        String path = "D:\\IdeaProjects\\AddressBook_Assignment\\data1.csv";
         List<String> arrayList = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
@@ -27,7 +27,7 @@ public class AddressBookSystem {
         System.out.println(arrayList);
     }
     public static void writingData() {
-        String path = "D:\\IdeaProjects\\AddressBook_Assignment\\data.csv";
+        String path = "D:\\IdeaProjects\\AddressBook_Assignment\\data1.csv";
         File file = null;
         FileOutputStream fileOutStream = null;
         try {
@@ -70,7 +70,7 @@ public class AddressBookSystem {
         List<PersonDetails> tempDataBase = new ArrayList<>();
 
         PersonDetails n3 = new PersonDetails();
-        PersonDetails x = findPersonDetails(firstName);
+        PersonDetails x = findPerson(firstName);
         loop1: while (true) {
             System.out.println("Which field would you like to edit: \n1. First Name\n2. Last Name\n3. City\n4. State\n5. Zip\n6. Phone Number\n7. Exit Edit Mode");
             int opt = sc.nextInt();
@@ -264,6 +264,26 @@ public class AddressBookSystem {
                 System.out.println(n2);
             }
         }
+        writingData();
+    }
+    public void display() {
+        System.out.println(dataBase);
+    }
+    private PersonDetails findPerson(String firstName) {
+        PersonDetails n4 = new PersonDetails();
+        for (PersonDetails tempPerson : dataBase) {
+            if (tempPerson.getFirstName() == firstName) {
+                n4 = tempPerson;
+            }
+        }
+        return n4;
+    }
+    public static void exitSystem() {
+
+        AddressBookMain.menu();
+    }
+    private void menuSave () {
+        System.out.println("1. Overwrite the data\n2. Create as new user\n3. Close Edit Menu\n");
         writingData();
     }
 
