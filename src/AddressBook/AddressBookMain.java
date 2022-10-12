@@ -1,87 +1,44 @@
 package AddressBook;
 
+import java.util.Scanner;
+
 public class AddressBookMain {
-    private String firstName;
-    private String lastName;
-    private String address;
-    private String city;
-    private String state;
-    private int zipCode;
-    private long phoneNumber;
+    private static final Scanner scan = new Scanner(System.in);
 
     public static void main(String[] args) {
         System.out.println("Welcome to AddressBook UseCase Program");
+        menu();
     }
-    public AddressBokkMain(String firstName, String lastName, String address, String city, String state, int zipCode, long phoneNumber) {
-        super();
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.city = city;
-        this.state = state;
-        this.zipCode = zipCode;
-        this.phoneNumber = phoneNumber;
-    }
-    public AddressBookMain(){
+    public static void menu() {
+        Scanner sc = new Scanner(System.in);
+        loop1:while (true) {
+            System.out.println("which one Would you like to open....");
+            System.out.println("1.Create Address Book");
+            System.out.println("2.Open Address Book");
+            System.out.println("3.Delete All Address");
+            System.out.println("4.Quit");
 
+            int choice = sc.nextInt();
+            sc.nextLine();
+            AddressBookManager addMan = new AddressBookManager();
+            switch (choice) {
+                case 1:
+                    addMan.createAddressBook();
+                    break;
+                case 2:
+                    addMan.openAddressBook();
+                    break;
+                case 3:
+                    addMan.deleteAllAddress();
+                    break loop1;
+                case 4:
+                    addMan.quitAddressBook();
+                    break;
+                default:
+                    System.out.println("Invalid option");
+                    break;
+            }
+        }
     }
-    public String getCity(){
-
-        return city;
-    }
-    public void setCity(String city){
-
-        this.city = city;
-    }
-    public long getMobileNumber(){
-
-        return phoneNumber;
-    }
-    public void setMobileNumber(long phoneNumber){
-
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getState(){
-
-        return state;
-    }
-    public void setState(String state){
-
-        this.state = state;
-    }
-    public int getZipCode(){
-
-        return zipCode;
-    }
-    public void setZipCode(int zipCode){
-        this.zipCode = zipCode;
-    }
-    public String getAddress(){
-
-        return address;
-    }
-    public void setAddress(String address){
-        this.address = address;
-    }
-    public String getFirstName(){
-
-        return firstName;
-    }
-    public void setFirstName(String firstName){
-
-        this.firstName = firstName;
-    }
-    public String getLastName(){
-        return lastName;
-    }
-    public void setLastName(String lastName){
-
-        this.lastName = lastName;
-    }
-    public String toString(){
-        return "Address[FirstName ="+ firstName+ ",LastName="+lastName+",Address="+address+",City="+city+",State="+state+",ZipCode="+zipCode+",MobileNumber="+phoneNumber+"]";
-
-    }
-
 }
+
