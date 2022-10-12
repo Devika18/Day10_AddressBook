@@ -1,5 +1,6 @@
 package AddressBook;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class AddressBookMain {
@@ -39,6 +40,43 @@ public class AddressBookMain {
                     break;
             }
         }
+    }
+    public static void userInput() {
+
+        PersonDetails newPersonDetails = new PersonDetails();
+        scan.nextLine();
+        System.out.println("Enter First Name: ");
+        newPersonDetails.setFirstName(scan.nextLine());
+        System.out.println("Enter Last Name: ");
+        newPersonDetails.setLastName(scan.nextLine());
+        System.out.println("Enter City: ");
+        newPersonDetails.setCity(scan.nextLine());
+        System.out.println("Enter State: ");
+        newPersonDetails.setState(scan.nextLine());
+        zip:while (true) {
+            try {
+                System.out.println("Enter Zip: ");
+                Scanner scan = new Scanner(System.in);
+                newPersonDetails.setZip(scan.nextInt());
+                break zip;
+            } catch (InputMismatchException e) {
+                System.out.println("invalid...! Enter again");
+                continue ;
+            }
+        }
+        ph:while (true){
+            try {
+                System.out.println("Enter Phone Number: ");
+                Scanner scan = new Scanner(System.in);
+                newPersonDetails.setPhoneNumber(scan.nextLong());
+                break ph;
+            } catch (InputMismatchException e) {
+                System.out.println("invalid...! Enter again");
+                continue ;
+            }
+        }
+        AddressBookSystem newEntry = new AddressBookSystem();
+        newEntry.addPersonDetails(newPersonDetails);
     }
 }
 

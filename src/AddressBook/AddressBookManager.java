@@ -14,7 +14,7 @@ public class AddressBookManager {
 
     public void deleteAllAddress() {
         AddressBookSystem.dataBase.clear();
-        String path = "D:\\IdeaProjects\\AddressBook_Assignment\\data.csv";
+        String path = "D:\\IdeaProjects\\AddressBook_Assignment\\data1.csv";
         File file = null;
         //FileOutputStream fileOutStream = null;
         System.out.println("Address book data cleared...!");
