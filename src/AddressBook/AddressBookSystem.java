@@ -256,5 +256,15 @@ public class AddressBookSystem {
         }
         writingData();
     }
+    public void deletePersonDetails(String firstName) {
+        for(PersonDetails n2 : dataBase) {
+            if (n2.getFirstName().equals(firstName)) {
+                dataBase.remove(n2);
+                System.out.print("Person details with given name \""+ firstName + "\" is deleted");
+                System.out.println(n2);
+            }
+        }
+        writingData();
+    }
 
 }
